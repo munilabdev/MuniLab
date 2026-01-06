@@ -1,0 +1,29 @@
+# ------------------------------
+# Hugo Build Output
+# ------------------------------
+/public/
+
+# Hugo Cache / Lock
+.hugo_build.lock
+resources/
+hugo_stats.json
+
+# ------------------------------
+# OS / Editor / IDE
+# ------------------------------
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# ------------------------------
+# System / Misc
+# ------------------------------
+*~
+
