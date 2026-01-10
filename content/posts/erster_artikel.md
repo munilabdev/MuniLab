@@ -1,7 +1,7 @@
 ---
 title: "Erster Artikel: Was steht gerade an?"
 date: 2026-01-06
-draft: true
+draft: false
 ---
 
 Wie bereits erwähnt, möchte ich in der Welt von Home-Labbing und Microcontrollern Fuß fassen. Bislang waren einige kleinere Projekte dabei, wobei der Fokus eher darauf lag, Grundlagen in Arduino zu erlangen und erste kleinere Spielerein zu bauen, wie eine Ampelsteuerung, Servo-Steuerungen und ein kleines Tastenklavier. Das erste "größere" Projekt war eine Temperaturstation, welche Temperatur und Luftfeuchtigkeit misst, und außerhalb einer bestimmten Temperaturgrenze ein Warnsignal abgibt.
