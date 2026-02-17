@@ -15,8 +15,3 @@ theme = "ananke"
     url = "/posts/"
     weight = 2
 
-  [[menu.main]]
-    name = "Über"
-    url = "/about/"
-    weight = 3
-

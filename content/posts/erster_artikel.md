@@ -1,19 +1,50 @@
 ---
-title: "Erster Artikel: Was steht gerade an?"
+title: "Übersicht über ersten Projekte"
 date: 2026-01-06
 draft: false
 ---
 
-Wie bereits erwähnt, möchte ich in der Welt von Home-Labbing und Microcontrollern Fuß fassen. Bislang waren einige kleinere Projekte dabei, wobei der Fokus eher darauf lag, Grundlagen in Arduino zu erlangen und erste kleinere Spielerein zu bauen, wie eine Ampelsteuerung, Servo-Steuerungen und ein kleines Tastenklavier. Das erste "größere" Projekt war eine Temperaturstation, welche Temperatur und Luftfeuchtigkeit misst, und außerhalb einer bestimmten Temperaturgrenze ein Warnsignal abgibt.
+## Was will ich umsetzen und bis wann?
 
-Das nächste Projekt soll ein kleiner Wecker sein, bestehend aus einer 7-Segment-Digitalanzeige, RTC-Modul, Akustikmodul (noch nicht näher spezifiziert) und dem Mikrocontroller zur Steuerung. Genaueres zur Umsetzung folgt in den kommenden Artikeln.
+Die ersten Projekte sollen werden:
+	- Wecker mit Adhan und Wetterstation -> zuletzt AI/Assisstantintegration
+	- Server mit Selfhosting (Cloud-Speicher, Fotoverwaltung, VPN und Passkey-Manager)
 
-Mein Ziel ist es, einen Wecker mit OLED-Display, Wetteranzeige und Gebetsruffunktion zu bauen, und alles aus eigener Hand, von Software bis zum selbstgedruckten Gehäuse. Stichtag sollte Ende September sein, dann möchte ich einen vollfunktionsfähigen Prototypen haben.
+Um nicht an zu vielen Projekten gleichzeitig zu arbeiten, ist die Zahl erstmal auf zwei Projekte beschränkt, um nicht den Fokus aus den Augen zu verlieren.
 
-In Sachen Home-Labbing soll erstmal ein NAS-Speicher aus einem Raspberry Pi und einer HDD gebaut werden. Ziel ist, von gängigen CLoudspeicher-Anbietern loszukommen, und einen Platz für Bilder und Dateien zu haben. Kurz darauf möchte ich einen Zugriff über VPN einrichten, sodass auch außerhalb meines Heimnetzes ein Zugriff auf die Daten möglich ist. 
+Stichtag für den endgültigen Wecker ist September 2026, während der Server bis Mai zumindest im eigenen Heimnetz lauffähig sein soll. Der Zugriff ausserhalb des Heimnetzes kann später ergänzt werden (Sicherheit der Daten > Schnelle Funktionalität des Servers).
 
-Abseits vom Home-Lab möchte ich auch Software mäßig weg von den großen Standardapplikationen. Ich bin vor einigen Wochen auf Linux umgestiegen, da ich Bedenken gegenüber WIndows 11 geäußert habe. Die Überschüttung mit KI-Tools, das Zumüllen mit Testsoftware auf meinem Rechner und Bednken bezüglich des Datenschutzeshaben mich dazu gebracht, Linux im Dual-Boot auszuprobieren. Nach langem Distrohopping habe ich Fedora Workstation als geeignete Distro für mich gefunden. Aus mangelnder Kompatibilität mit MATLAB habe ich mich aber für POP!-OS entschieden. Dem Thema Linux, Distro-Hopping und dem Wechsel von Windows würde ich aber auch einen eigenen Artikel widmen.
+Dennoch möchte ich zunächst einen ersten Weckerprototyp fertigstellen, um doch ein "schnelles" Erfolgserlebnis zu haben und auszuloten, welche Schwierigkeiten in Zukunft folgen könnten.
 
-Grob könnte man sagen, es gibt 3 Baustellen momentan: mein Weckerprojekt, der erste Schritt ins Home-Labbing und mein Skillset im Umgang mit Betriebssystemen. Dabei ist Baustelle 3 im Moment eher etwas, woran ich passiv arbeite, als dass ich aktiv versuche neue Dinge zu lernen. Dazu aber mehr im kommenden Artikel.
+### Wecker Mk1
 
-Der Blog soll monatlich einmal erscheinen, zumindest fürs erste. In Zukunft sollen diese Posts auch Fotos und Diagramme enthalten, mal sehen, wie und wann es dazu kommt. Zunächst einmal ist das Ziel aber, regelmäßig über einen längeren Zeitraum zu bloggen. Dies soll nur eine Einführung sein, der erste richtige Post folgt dann Ende Januar.
+Der erste Prototyp soll um einen Arduino mit RTC-Modul herum gebaut werden. Das RTC-Modul dient der Erfassung der Uhrzeit. 
+
+Als Ausgabe-Plattform soll ein 16x2 LCD-Display fungieren, während Bediener-Eingaben durch zwei Taster registriert werden sollen (Set und Reset). 
+
+Der Weckton soll mit Hilfe eines Buzzers realisiert werden, um die Komplexität gering zu halten und nicht unnötig Platz im Gehäuse mit zusätzlichen Bauteilen, wie dem Audio-Modul, zu verschwenden. 
+
+Zuletzt kommt ein 3D gedrucktes Gehäuse, wo alles seinen Platz finden wird. 
+
+Im folgenden sollen die weiteren Wecker-Prototypen immer weiterentwickelt werden, sodass Stück für Stück mehr Funktionen des endgültigen Weckers hinzugefügt werden. Dies möchte ich im folgenden definieren:
+
+	- Mk2 soll anstelle eines Arduino UNO durch einen ESP32 betrieben werden. Vorteil sind eine WLAN-Anbindung für Wetter und Adhan APIs und eine kompaktere Bauform. 
+	- als Ausgabemedium soll ein größeres, höher auflösendes OLED-Display verwendet werden, um mehr Platz für die dargestellten Informationen zu haben.
+	- Und für die Audioausgabe wird aufgrund des Adhans ein Lautsprecher benötigt. 
+
+Somit wäre die Definition des Weckers Mk2 abgeschlossen. Im letzten Schritt würde die AI-Integration folgen, da der ESP32 dafür aber nicht leistungsstark genug ist, muss dafür eine andere Lösung gefunden werden. Ganz grundlegend ist aber das Projekt abgeschlossen, und es würden technische Optimierungen und optische Verbesserungen folgen.
+
+
+### Server
+
+Der Server soll zunächst durch einen Raspberry Pi 4b als NAS (Network Attached Storage) umgesetzt werden. Anschließend sollen die anderen Funktionen schrittweise dazukommen. Zu genaueren Spezifikationen kommen wir nach Abschluss des Weckers Mk1.
+
+
+### Zielsetzung für den kommenden Monat
+
+Ziel sollte sein, eine funktionierende Grundfunktion eines Weckers nachzubilden. Dazu gehören:
+	- Anzeige von Uhrzeit
+	- Einstellen einer Weckzeit
+	- Abspielen eines Alarmtons bei Erreichen der Weckzeit
+
+Die reine Funktionalität steht im Vordergrund. Daher wird eine Grundschaltung auf einem Breadboard erstellt, und diese Funktionen nacheinander umgesetzt.
