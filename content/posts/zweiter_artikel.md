@@ -6,7 +6,7 @@ date: 2026-02-14
 
 Zuletzt habe ich mir 3 Ziele definiert, die ich für diesen Moant erreichen möchte. Kurz zur Wiederholung, waren es das Anzeigen der Uhrzeit, Einstellen der Weckzeit, und das Abspielen eines Wecktons bei Übereinstimmung der vorherigen.
 
-Um das umzusetzen, wollte ich mich eines neuen Konzeptes bedienen, welches in der Hocschule kennenlernte: dem Zustandsautomaten. Im Grunde genommen wollte ich jede dieser drei Funktionen als eigenen Zustand definieren, um dann mit Hilfe der Tasteneingabe zwischen diesen zu wechseln und die Funktionen auszuführen.
+Um das umzusetzen, wollte ich mich eines neuen Konzeptes bedienen, welches in der Hochschule kennenlernte: dem Zustandsautomaten. Im Grunde genommen wollte ich jede dieser drei Funktionen als eigenen Zustand definieren, um dann mit Hilfe der Tasteneingabe zwischen diesen zu wechseln und die Funktionen auszuführen.
 
 Dabei wollte ich zunächst einmal die Zustände für sich alleinstehend definieren, und wie sich diese Zustände verhalten sollen. Beispielhaft hätte man das wie folgt lösen können: realtime für die Uhrzeit, wakeuptime für die Weckzeit und alarm für den Weckton. 
 
