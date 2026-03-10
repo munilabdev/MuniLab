@@ -1,6 +1,7 @@
-baseURL = 'http://munilab.dev/'
+baseURL = 'https://munilab.dev/'
 languageCode = 'en-us'
-title = 'munilab.dev'
+title = "munilab.dev"
+
 theme = "ananke"
 
 [menu]
