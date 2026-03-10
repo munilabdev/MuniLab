@@ -14,7 +14,7 @@ Da ich noch keine Erfahrung mit CAD-Software hatte, entschloss ich mich, anstatt
 
 Doch bevor ich mich an die digitale Umsetzung machen konnte, skizzierte ich die Verschaltung per Hand und erstellte eine kleine Klemmentabelle, in der alle benötigten Verbindungen aufgelistet sind. Das sollte meine Gedankenstütze werden.
 
-## Umsetzung in KiCAD
+### Umsetzung in KiCAD
 Auf Grundlage dieser Skizze erstellte ich dann mit Hilfe der KiCAD-Doku meinen Schaltplan. Im Prinzip bestand diese Aufgabe nur aus dem Setzen und Verbinden von Bauteilen. Nach kurzer Recherche konnten auch die richtigen Footprints für die Bauteile gesetzt werden, bis hierhin also alles kein Problem.
 
 Als es dann zu dem eigentlichen Design der Platine geht, sah ich bereits einige Probleme. Da ich ja eine Art Shield für den Arduino erstellen wollte, hatte ich die Sorge, der Shiel selbst würde nicht genau auf dem Arduino passen. Ich wusste nicht, wie ich die genauen Maße ins Programm kriege. Und in Anbetracht der langen Wartezeit und Kosten der PCB-Fertigung, war Trial-and-Error keine Möglichkeit, Mess- und Designfehler auszubessern.
@@ -25,5 +25,5 @@ Somit war das Design relativ schnell fertig, und ich konnte die Platine in Auftr
 
 Aber, ich glaube wenn die Platine funktioniert, kann ich es dennoch als Erfolg abschreiben. Da es sich immer noch um meinen ersten Versuch handelt, bin ich damit zufrieden, alle Bauteile auf einer Platine untegebrachr zu haben und einen funktionierenden Wecker zu haben. Somit nehme ich mir aber jetzt schon vor, bei dem Mk2 mehr darauf zu achten, Verzweigungen zu vermeiden und die Platine so kompakt wie möglich zu designen.
 
-## Was jetzt?
+### Was jetzt?
 Da die Platinen lange brauchen werden, bis Sie bei mir ankommen, werde ich mich in der Zwischenzeit etwas mit meinem Server und FreeCAD beschäftigen, dazu aber mehr in den anderen Posts.
