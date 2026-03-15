@@ -1,6 +1,6 @@
 ---
 title: "Mein Einstieg ins Homelabing"
-date: 03-14-2026
+date: 2026-03-15
 ---
 
 Seit längerem hat sich bei mir der Wunsch geäußert, unabhängiger in der digitalen Welt zu werden. Dazu gehört allem voran das Zurückgewinnen der Kontrolle über die eigenen Daten und das Durchbrechen Inkompatibilität verschiedender Plattformen wie Linux und Apple. Im Zuge dessen hab ich mich sehr mit NAS (Network Attached Storage), Heimservern und Netzwerken beschäftigt. Und ziemlich schnell den Entschluss gefasst: "Das brauche ich auch". Somit fing ich an, extrem viele Artikel zu dem Thema zu lesen und etliche Videos anzuschauen. So hatte ich sofort ein großen Input an Möglichkeiten, gängigen Methoden und Zugang zu einem umfassenden Grundverständnis von Heimnetzwerken. Ziemlich hilfreich waren verschiedene Youtube-Kanäle wir Ardens, Switch and Click und Hardware Haven, die mit ihrer Dartsellung eigener Projekte und Erfahrungen bereits auf einige Schwierigkeiten hinwiesen.
