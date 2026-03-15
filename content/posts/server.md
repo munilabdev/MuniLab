@@ -11,13 +11,13 @@ Schnell stellte sich die Frage, wie ich den mein eigenes Heimnetzwerk aufbauen m
 
 Somit stand fest, was ich haben wollte, und ich konnte mich damit beschäftigen, wie ich das ganze umsetze. Ich entschied mich, anstelle eines Raspberrys einen alten Office-Rechner, den ich im Internet für einen guten Preis erworben habe, zu verwenden, einfach um mehr Möglichkeiten beim Upgrade und Austausch der Hardware zu haben. Somit hatte ich außerdem ein sauberes System, mit Platz für Erweiterungen und Speichermedien.
 
-### Die Hardware
+## Die Hardware
 
 Zu den Specs: Es handelt sich um einen Esprimo Rechner mit einem Intel i5 der 6. Generation, einer 256 GB SSD Boot-Drive mit Windows 11 und 8 GB RAM. Ich habe gleich eine zussätzliche 512 GB SSD M2 mittels PCIe-Adapter eingebaut, um genug Platz für die später laufende Software zu haben. Anschließend baute ich noch zwei 4 TB NAS-HDDs ein, die den Speicherplatz für meine Daten zur Verfügung stellen sollten. Damit bin ich langfristig gut gewappnet, und das System ist modular so aufgebaut, das (zumindest erhoffe ich mir das) ein späterer Upgrade auf leistungsstärere Komponenten ein einfach Austausch sein wird, ohne meine ganzen Daten verschieben zu müssen oder ähnliches.
 
 Das Betriebssystem habe ich gegen die Server Version von Ubuntu Linux 24.04 LTS ausgetauscht, weil ich ein großer Fan von Open-Source bin, und ich mir eine höhere  Effizienz durch die fehlende GUI (Graphic User Interface) erhofft habe. Außerdem wollte ich mich dadurch zwingen, meinen Terminal-Workflow zu verbessern. Die Programme bzw. die von den Programmen verwendeten Daten wollte ich auf der M2-SSD speichern, sodass ich genug Platz habe und das System ungesorgt wachsen kann. Rückblickend betrachtet ist das Setup vielleicht etwas unnötig, aber ich fand die 256 GB definitv zu klein, und hatte mir ehrlich gesagt nicht vorstellen können, was ich sonst mit der kleinen Festplatte hätte tun sollen.
 
-### Die Software
+## Die Software
 
 Da nun das fertige Gerät vor mir stand, musste ich mir Gedanken dazu machen, wie ich den alten Office-Rechner nun zu einem echten Server mache. Die Ziele standen fest, nun sollte es darum gehen, wie diese Ziele erreicht werden konnten. Dabei war mir wie immer wichtig, dass es sich um Open-Source-Software handelt, und ich so wenig wie möglich abhängig auf Dienste von anderen Unternehmen bin. 
 
@@ -51,12 +51,22 @@ Immich stellte sich als schnelle und einfache Installation heraus. Mit einer kur
 
 Mit Vaultwarden kamen einige Probleme auf mich zu. Eigentlich habe ich mich gegen das exponieren meiner Dienste ins Internet entschieden. Ich habe es auch geschafft, Vaultwarden im lokalen Netzwerk zum Laufen zu bringen. Jedoch konnte ich aufgrund fehlender HTTPS-Verschlüsselung nicht auf den Dienst zugreifen. Da mein technisches Know-How nicht ausreicht, dafür einen Umweg zu finden, entschied ich mich für das Umsetzen von Vaultwarden mittels Reverse Proxy über Nginx. Im selben Zug entschied ich mich, Immich ebenso über Reverse Proxy zu öffnen, sodass der Remote Zugriff deutlich schneller von statten gehen kann. 
 
+### Wo hatte ich große Probleme?
+
 Da aber auch Vaultwarden eine meiner Meinung nach sehr ausbaufähige Dokumentation hat, musste ich mich wieder alternativen Quellen bedienen. Zwar gab es für die Docker Compose File und Nginx Konfiguration fertige Dateien, ich musste mich dennoch erst in das Thema Nginx und Reverse Proxy einlesen. Denn das war in dem Fall die größte Schwierigkeit, Nginx zu konfigurieren. Ich habe es nicht geschafft, eine HTTPS-Zertifizierung für meine Domains zu generieren.
 
 Obwohl ich die Ports auf meinen Server umgeleitet und die Domains bei meinem Provider eingetragen habe, konnte ich keine Verbindung zu meinem Server herstellen, und habe nicht verstanden, woran es lag, da ich alles nach Anleitung umgesetzt habe. Irgendwann fiel mir jedoch auf, dass ich den DNS-Server von dem Default DNS meines Domain Providers auf die DNS-Server von Netlify geändert habe, da ich meinen Blog über Netlify hoste. Somit habe ich die DOmains auf dem Netlify-DNS eingetragen, und das Problem wurde gelöst.
 
 So hatte ich dann endlich nach ewiger Fehlersuche sowohl Immich und Vaultwarden immer erreichbar. Jetzt geht es nur darum, die Daten zu übertragen, und Freude an dem privaten, eigenen Server zu haben.
 
+## Das Sicherheitskonzept
+
+Da ich sehr sensible Daten auf meinem Server speicher, als auch Daten mit emotionaler Bedeutung, wie Fotos und Videos, ist es umso wichtiger ein Sicherheitskonzept zu erarbeiten. Nichts wäre schlimmer, als ein Datenverlust. Da gibt es im Prinzip zwei Möglichkeiten wie das geschehen kann: technisches Versagen meiner Hardware und äußere Einflüsse wie Menschen, Naturkatastrophen etc. 
+
+Um dem Versagen meiner Hardware vorzubeugen habe ich wie bereits erwähnt zwei 4 TB Festplatten eingebaut, und diese als RAID 1 ausgelegt. Das bedeutet im Prinzip einfach nur, das alle Daten gespiegelt auf beiden Laufwerken gespeichert werden, sodass im Fall, wenn eine Festplatte ausfällt, die Daten dennoch rekonstruiert bzw. wiederhergestellt werden können. Das ist in meinen Augen die kostengünstigste Methode, an ein sicheres System zu kommen, da die Einstiegshürde mit der Anschaffung von "nur" zwei HDDs relativ gering ist. Um dazu noch ein Backup zu haben, was zeitgesteuert immer den aktuellen Stand + den vorherigen sichert, wird eine externe Festplatte nachgerüstet, die bei Bedarf abgeklemmt oder mit einer weiteren durchrotiert werden kann, sodass das Backup "hermetisch" vom Netzwerk getrennt verwahrt werden kann, um den Angriffsvektor auf meine Daten zu verkleinern.
+
+Auf der anderen Seite muss ich meinen Server auch durch Angriffe aus dem Netz sichern. Trojaner, Viren, Ddos-Angriffe und weitere sind durch die Öffnung von Ports nun eine reale Gefahr, die man sich mit dem Komfort eingekauft hat. Um dem vorzubeugen, werde ich verschiedene Sicherheitsverfahren implementieren müssen, wie eine Firewall, Intrusion Prevention System und weitere. Ziel ist es auch, durch eigene Penetrationstests auszuloten, wie sicher mein Server ist. 
+
 ## Fazit
 
-Auch bei diesem Projekt hatte ich viel neues Wissen sammeln können. Funktion von DNS, Ports, Proxys und sogar die einfache Benutzerverwatung von Linux. Die Wartezeit auf meine Wecker PCBs habe ich mit dem aufsetzen des Servers super und produktiv umsetzen können. Und mit Hilfe des Internets ging die Einrichtung sogar schneller als gedacht. Da der Server nun steht, möchte ich mich auch etwas mit dem Hardening befassen, um den Angriff auf den Server zu erschweren, dazu aber mehr in Zukunft.
+Auch bei diesem Projekt hatte ich viel neues Wissen sammeln können. Funktion von DNS, Ports, Proxys und sogar die einfache Benutzerverwatung von Linux. Die Wartezeit auf meine Wecker PCBs habe ich mit dem aufsetzen des Servers super und produktiv umsetzen können. Und mit Hilfe des Internets ging die Einrichtung sogar schneller als gedacht. Ich bin sehr zufrieden mit dem Endergebnis, und freue mich später noch mit Themen wie Server-Hardening und -Monitoring auseinanderzusetzen, um Sicherheit und Effizienz meiner Maschine zu erhöhen.
