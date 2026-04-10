@@ -1,6 +1,6 @@
 ---
 title: WeckerMk1 fertiggestellt - Aufbau der Platine und Gehäusedesign
-date: 2026-04-06
+date: 2026-04-10
 ---
 Einige Wochen, nachdem ich die Platinen in Fertigung gegeben habe, kamen diese auch bei mir Zuhause an, und ich konnte diese genauer unter die Lupe nehmen. Es war schön zu sehen, wie etwas, was man zuvor aus seinen groben Ideen in einem Programm zusammengeführt hat, plötzlich in den eigenen Händen liegt. Die Vorfreude und die Aufregung waren riesengroß. Also hab ich mich so schnell es ging an den Lötkolben gesetzt und angefangen, die Platine fertigzustellen.
 

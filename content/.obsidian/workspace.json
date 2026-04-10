@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2b628db8151e9cb5",
+        "id": "eb3a3e96106b3049",
         "type": "tabs",
         "children": [
           {
-            "id": "3e9654a4d91edba0",
+            "id": "66d25948d70338ef",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -196,10 +196,11 @@
       "bases:Neue Base erstellen": false
     }
   },
-  "active": "3e9654a4d91edba0",
+  "active": "66d25948d70338ef",
   "lastOpenFiles": [
-    "posts/immich-20260410_163536/IMG_7308_edited.jpg",
+    "2026-04-06.md",
     "posts/WeckerMk1.md",
+    "posts/immich-20260410_163536/IMG_7308_edited.jpg",
     "posts/immich-20260410_163536/IMG_7309.HEIC",
     "posts/immich-20260410_163536/IMG_7310.HEIC",
     "posts/immich-20260410_163536",
