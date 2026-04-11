@@ -4,11 +4,11 @@ date: 2026-02-14
 ---
 ## Grundidee und Umsetzung
 
-Zuletzt habe ich mir 3 Ziele definiert, die ich für diesen Moant erreichen möchte. Kurz zur Wiederholung, waren es das Anzeigen der Uhrzeit, Einstellen der Weckzeit, und das Abspielen eines Wecktons bei Übereinstimmung der vorherigen.
+Zuletzt habe ich mir 3 Ziele definiert, die ich für diesen Monat erreichen möchte. Kurz zur Wiederholung, waren es das Anzeigen der Uhrzeit, Einstellen der Weckzeit, und das Abspielen eines Wecktons bei Übereinstimmung der vorherigen.
 
-Um das umzusetzen, wollte ich mich eines neuen Konzeptes bedienen, welches in der Hochschule kennenlernte: dem Zustandsautomaten. Im Grunde genommen wollte ich jede dieser drei Funktionen als eigenen Zustand definieren, um dann mit Hilfe der Tasteneingabe zwischen diesen zu wechseln und die Funktionen auszuführen.
+Um das umzusetzen, wollte ich mich eines neuen Konzeptes bedienen, welches in der Hochschule kennen lernte: dem Zustandsautomaten. Im Grunde genommen wollte ich jede dieser drei Funktionen als eigenen Zustand definieren, um dann mit Hilfe der Tasteneingabe zwischen diesen zu wechseln und die Funktionen auszuführen.
 
-Dabei wollte ich zunächst einmal die Zustände für sich alleinstehend definieren, und wie sich diese Zustände verhalten sollen. Beispielhaft hätte man das wie folgt lösen können: realtime für die Uhrzeit, wakeuptime für die Weckzeit und alarm für den Weckton. 
+Dabei wollte ich zunächst einmal die Zustände für sich allein stehend definieren, und wie sich diese Zustände verhalten sollen. Beispielhaft hätte man das wie folgt lösen können: realtime für die Uhrzeit, wakeuptime für die Weckzeit und alarm für den Weckton. 
 
 Nachdem ich jeden Zustand an und für sich entwickelt und erprobt habe, konnte ich mir darüber Gedanken machen, WIE ich zwischen den Zuständen wechsle.
 
@@ -24,21 +24,21 @@ Prinzipiell war ich mit meiner grundlegenen Planung zufrieden und wollte mich an
 
 Die Uhrzeit wurde beim Boot vom Arduino angezeigt, aber nur die momentan Uhrzeit. Trotz sich wiederholenden Abfrage wurde die Zeit auf dem Display nicht aktualisiert, erst beim Betätigen der Reset-Taste am Mikrocontroller selbst.
 
-Gelöst wurde dies nach langer Recherche zur Funktionsweise des RTC-Moduls. Ich verwendete einen DS3231 zusammen mit der fertigen RTClib Bibliothek. Diese verlangte einen C-String im Format "hh:mm:ss", welcher noch abhängig der geforderten Information angepasst werden konnte. Da dieser C-String jedoch bei dem Abfragen mit der momentanen Uhrzeit überschrieben wurde, ist das gefporderte Format verloren gegangen, und der String wurde nicht mit der aktuellen Uhrzeit beschrieben.
+Gelöst wurde dies nach langer Recherche zur Funktionsweise des RTC-Moduls. Ich verwendete einen DS3231 zusammen mit der fertigen RTClib Bibliothek. Diese verlangte einen C-String im Format "hh:mm:ss", welcher noch abhängig der geforderten Information angepasst werden konnte. Da dieser C-String jedoch bei dem Abfragen mit der momentanen Uhrzeit überschrieben wurde, ist das geforderte Format verloren gegangen, und der String wurde nicht mit der aktuellen Uhrzeit beschrieben.
 
 Dies konnte ich durch einen weiteren C-String lösen, der als Format-Vorlage diente. Diesen kopierte ich vor jeder Zeitabfrage in den Zeit-String, sodass immer die richtige Formatierung vorlag. Dadurch konnte immer die aktuelle Uhrzeit angezeigt werden.
 
 ### Problem 2: Flankenerkennung
 
-Wenn man eine Tastenabfrage durchführt, fragt man im Prinzip den Spannungspegel am EIngangspin ab. Aufgrund der schnellen Wiederholung der if-Abfragen im Arduino (void loop) und der im Vergleich sehr langen Betätigung des Tasters durch den Bediener, kann es dazu kommen, dass dieselbe if-Abfrage mehrmals durchgeführt wird, oder eine Tasterbetätigung fehlinterpretiert wird und daher zu einem Überspringen von Menüs oder anderen unerwünschten Reaktionen führt.
+Wenn man eine Tastenabfrage durchführt, fragt man im Prinzip den Spannungspegel am Eingangspin ab. Aufgrund der schnellen Wiederholung der if-Abfragen im Arduino (void loop) und der im Vergleich sehr langen Betätigung des Tasters durch den Bediener, kann es dazu kommen, dass dieselbe if-Abfrage mehrmals durchgeführt wird, oder eine Tasterbetätigung fehlinterpretiert wird und daher zu einem Überspringen von Menüs oder anderen unerwünschten Reaktionen führt.
 
 Daher musste eine Flankensteuerung her. Da der Arduino dies aber nativ nicht unterstützt, beziehungsweise es keine direkte Flankenabfrage wie in VHDL gibt, musste ich mir diese selber bauen.
 
-Im Prnzip müsse dafür zwei Abfragen geschehen: eine, die den Zustand des Tasters abfragt, um eine FUnktion hervorzurufen, und eine, die den Zustand kurzzeitig speichert. 
+Im Prinzip müsse dafür zwei Abfragen geschehen: eine, die den Zustand des Tasters abfragt, um eine Funktion hervorzurufen, und eine, die den Zustand kurzzeitig speichert. 
 
-Zunächst habe ich dafür eine Zustandsabgfrage des Tasters vor die if-Abfrage der Funktion gelegt, und dann abgefragt, ob sich diese zwei Zustände des Tasters unterscheiden. Dies hat aber nicht funktioniert, da ich dann bei der Bedienung immer den Zeitpunkt ZWISCHEN diesen zwei Abfragen (Taster vorher und Taster jetzt) erwischen musste. Keine gelungene Umsetzung.
+Zunächst habe ich dafür eine Zustandsabfrage des Tasters vor die if-Abfrage der Funktion gelegt, und dann abgefragt, ob sich diese zwei Zustände des Tasters unterscheiden. Dies hat aber nicht funktioniert, da ich dann bei der Bedienung immer den Zeitpunkt ZWISCHEN diesen zwei Abfragen (Taster vorher und Taster jetzt) erwischen musste. Keine gelungene Umsetzung.
 
-Da die Grundidee aber eigentlich richtig war, musste ich einfach den Zeitpunkt der vorherigen Tasterabfrage verändern. Anstatt den Zustand vor der eigentlichen FUnktion abzufragen, fragte ich den Zustand der Taster am Ende von void loop ab. Dadurch erreichte ich, dass der Mikrocontroller dann im neuen Durchlauf von einem noch immer gedrückten Taster ausgeht, und dann die Funktion verweigert. Dadurch, dass der Arduino aber sehr schnell über den Code iterriert, fällt diese kleine Verzögerung nicht auf und es wird der Anschein einer direkten Reaktion erweckt, ohne dabei unpräzise zu wirken.
+Da die Grundidee aber eigentlich richtig war, musste ich einfach den Zeitpunkt der vorherigen Tasterabfrage verändern. Anstatt den Zustand vor der eigentlichen Funktion abzufragen, fragte ich den Zustand der Taster am Ende von void loop ab. Dadurch erreichte ich, dass der Mikrocontroller dann im neuen Durchlauf von einem noch immer gedrückten Taster ausgeht, und dann die Funktion verweigert. Dadurch, dass der Arduino aber sehr schnell über den Code iterriert, fällt diese kleine Verzögerung nicht auf und es wird der Anschein einer direkten Reaktion erweckt, ohne dabei unpräzise zu wirken.
 
 Somit war Problem zwei auch gelöst.
 
