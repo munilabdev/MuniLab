@@ -1,5 +1,5 @@
 ---
-title: AlarmclockMk2 - Wie geht es weiter?
+title: WeckerMk2 - Wie geht es weiter?
 date: 2026-04-11
 draft: false
 ---

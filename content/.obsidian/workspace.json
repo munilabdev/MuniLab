@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/zweiter_artikel.md",
+                "file": "posts/AlarmMk2_Planung.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "zweiter_artikel"
+              "title": "AlarmMk2_Planung"
             }
           }
         ]
@@ -198,8 +198,8 @@
   },
   "active": "cbe5c935206cae6c",
   "lastOpenFiles": [
-    "posts/AlarmMk2_Planung.md",
     "posts/zweiter_artikel.md",
+    "posts/AlarmMk2_Planung.md",
     "posts/erster_artikel.md",
     "posts/WeckerMk1.md",
     "posts/PlatineMk1.md",
