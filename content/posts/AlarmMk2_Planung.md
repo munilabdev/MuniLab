@@ -1,6 +1,6 @@
 ---
 title: AlarmclockMk2 - Wie geht es weiter?
-date: 2026-05-10
+date: 2026-04-11
 draft: false
 ---
 ### Grundidee
@@ -34,7 +34,7 @@ Wie bereits erwähnt, liest der ESP mittels SPI-Protokoll dann die jeweilige Aud
 
 ### Mini-Projekte
 
-Da ich in meinem Artikel ["Wecker Mk1 Zwischenbericht"](/posts/zweiter_artikel) erwähnt habe, dass ich ein Problem mit den C-Strings hatte, da ich mir die Dokumentation zur RTC-Library nicht genau durchgelesen habe, möchte ich solchen Problemen vorbeugen. 
+Da ich in meinem Artikel ["Wecker Mk1 Zwischenbericht"](/content/posts/zweiter_artikel) erwähnt habe, dass ich ein Problem mit den C-Strings hatte, da ich mir die Dokumentation zur RTC-Library nicht genau durchgelesen habe, möchte ich solchen Problemen vorbeugen. 
 
 Erneut fragte ich die KI meines Vertrauens, ob sie mir nicht einige Mini-Projekte geben könnte, mit denen ich mich zunächst mit jeder Komponente für sich auseinander setze. Dadurch möchte ich Fehler bereits im Vorhinein eliminieren, und mir die Suche nach diesen erleichtern. Ich werde nicht verwirrt, welches Bauteil nun einen Fehler verursacht, da ich immer nur eines gleichzeitig verwende. Zudem kenne ich dann eventuelle Fehlerbilder bereits, und kann diese genauer einordnen. 
 
