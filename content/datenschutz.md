@@ -44,14 +44,13 @@ Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
 
 Diese Website wird bei folgendem Anbieter gehostet:
 
-Netlify, Inc.
-2325 3rd Street, Suite 296
-San Francisco, CA 94107, USA
+GitHub, Inc. 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (ein Unternehmen der Microsoft Corporation)
 
-Netlify verarbeitet personenbezogene Daten im Rahmen einer Auftragsverarbeitung gemäß Art. 28 DSGVO.
+GitHub verarbeitet personenbezogene Daten (z.B. IP-Adressen der Besucher) im Rahmen einer Auftragsverarbeitung gemäß Art. 28 DSGVO.
 
-Es kann nicht ausgeschlossen werden, dass Daten in die USA übertragen werden.
-Netlify verpflichtet sich zur Einhaltung der geltenden Datenschutzstandards.
+Es kann nicht ausgeschlossen werden, dass Daten in die USA übertragen werden. GitHub verpflichtet sich zur Einhaltung der geltenden Datenschutzstandards, unter anderem durch entsprechende Standardvertragsklauseln (SCCs) der EU-Kommission.
+
+Weitere Informationen zum Datenschutz bei GitHub findest du in der Datenschutzerklärung von GitHub: https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement
 
 5. Domain-Registrierung
 
