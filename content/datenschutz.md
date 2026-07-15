@@ -1,6 +1,6 @@
 ---
 title: "Datenschutz"
-date: 2026-02-17T16:49:53+01:00
+date: 2026-07-15
 
 ---
 ## Datenschutzerklärung
