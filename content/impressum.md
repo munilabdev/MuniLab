@@ -1,6 +1,6 @@
 ---
 title: "Impressum"
-date: 2026-02-17T16:49:45+01:00
+date: 2026-07-15
 
 ---
 
@@ -12,6 +12,6 @@ info@munilab.dev
 Verantwortlich für den Inhalt:  
 Muanis Hajlovac
 
-Hosting: Netlify, Inc.  
+Hosting: GitHub, Inc.
 Domain: INWX GmbH
 
