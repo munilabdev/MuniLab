@@ -14,4 +14,3 @@ Muanis Hajlovac
 
 Hosting: GitHub, Inc.
 Domain: INWX GmbH
-
